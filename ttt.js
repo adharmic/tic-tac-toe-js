@@ -4,7 +4,7 @@ function createBoard() {
     const canPlayPiece = (row, col) => {
         if (row > 3 || row < 1) return false;
         if (col > 3 || col < 1) return false;
-        return board[(row - 1) * 3 + col - 1] !== null;
+        return board[(row - 1) * 3 + col - 1] === null;
     }
 
     const playPiece = (player, row, col) => {
@@ -15,20 +15,20 @@ function createBoard() {
 
     const checkBoard = () => {
         // Check columns
-        if ((board[0] === board[3] && board[3] === board[6])
-        || (board[1] === board[4] && board[4] === board[7])
-        || (board[2] === board[5] && board[5] === board[8])) {
+        if ((board[0] !== null && (board[0] === board[3] && board[3] === board[6]))
+        || (board[1] !== null && (board[1] === board[4] && board[4] === board[7]))
+        || (board[2] !== null && (board[2] === board[5] && board[5] === board[8]))) {
             return "Win";
         }
         // Check rows
-        if ((board[0] === board[1] && board[1] === board[2]) 
-        || (board[3] === board[4] && board[4] === board[5])
-        || (board[6] === board[7] && board[7] === board[8])) {
+        if ((board[0] !== null && (board[0] === board[1] && board[1] === board[2]))
+        || (board[3] !== null && (board[3] === board[4] && board[4] === board[5]))
+        || (board[6] !== null && (board[6] === board[7] && board[7] === board[8]))) {
             return "Win";
         }
         // Check diagonals
-        if ((board[0] === board[4] && board[4] === board[8])
-        || (board[2] === board[4] && board[4] === board[6])) {
+        if ((board[0] !== null && (board[0] === board[4] && board[4] === board[8]))
+        || (board[2] !== null && (board[2] === board[4] && board[4] === board[6]))) {
             return "Win";
         }
 
@@ -40,7 +40,7 @@ function createBoard() {
     }
 
     const isBoardFull = () => {
-        return board.includes(null);
+        return !board.includes(null);
     }
 
     const getBoardState = () => {
@@ -103,5 +103,11 @@ function createGame() {
         return currentPlayer;
     }
 
-    return { takeTurn, getCurrentPlayer };
+    const printBoardState = () => {
+        console.log(gameBoard.getBoardState());
+    }
+
+    return { takeTurn, getCurrentPlayer, printBoardState };
 }
+
+let mainGame = createGame();
