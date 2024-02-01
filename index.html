@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <title>Document</title>
     <script src="./ttt.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <h2 id="reset-text">Restart</h2>
+    <button id="reset-game"><i class="fa fa-repeat"></i></button>
 </head>
+
 <body>
-    <div class="header">
-        <h1>Tic-Tac-Toe</h1>
-    </div>
-    <button id="reset-game">Reset Game</button>
-    <div class="game-status">
-        <h4>It is X's turn</h4>
-    </div>
-    <div class="board-container">
-        <div class="board-square clickable" data-index="1"></div>
-        <div class="board-square clickable" data-index="2"></div>
-        <div class="board-square clickable" data-index="3"></div>
-        <div class="board-square clickable" data-index="4"></div>
-        <div class="board-square clickable" data-index="5"></div>
-        <div class="board-square clickable" data-index="6"></div>
-        <div class="board-square clickable" data-index="7"></div>
-        <div class="board-square clickable" data-index="8"></div>
-        <div class="board-square clickable" data-index="9"></div>
-    </div>
-    <div class="footer">
-        <h6>By Adithya Ajith</h6>
+    <div class="wrapper">
+        <div class="header">
+            <h1>Tic-Tac-Toe!</h1>
+        </div>
+        <div class="game-status">
+            <h2>It is X's turn</h2>
+        </div>
+        <div class="board-container">
+            <div class="board-square clickable" data-index="1"></div>
+            <div class="board-square clickable" data-index="2"></div>
+            <div class="board-square clickable" data-index="3"></div>
+            <div class="board-square clickable" data-index="4"></div>
+            <div class="board-square clickable" data-index="5"></div>
+            <div class="board-square clickable" data-index="6"></div>
+            <div class="board-square clickable" data-index="7"></div>
+            <div class="board-square clickable" data-index="8"></div>
+            <div class="board-square clickable" data-index="9"></div>
+        </div>
+        <div class="footer">
+            <h1>By Adithya Ajith</h1>
+            <a href="https://github.com/adharmic/tic-tac-toe-js">
+                <i class="fa fa-github"></i></a>
+        </div>
     </div>
 </body>
+
 </html>

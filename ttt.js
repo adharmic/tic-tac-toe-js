@@ -122,7 +122,7 @@ function createGame() {
 function displayHandler() {
     const mainGame = createGame();
     const gameButtons = document.querySelectorAll('.board-square');
-    const statusMessage = document.querySelector('.game-status h4');
+    const statusMessage = document.querySelector('.game-status h2');
     const resetButton = document.querySelector('#reset-game');
 
     resetButton.addEventListener('click', (e) => {
