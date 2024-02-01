@@ -110,4 +110,8 @@ function createGame() {
     return { takeTurn, getCurrentPlayer, printBoardState };
 }
 
+function displayHandler() {
+    
+}
+
 let mainGame = createGame();
