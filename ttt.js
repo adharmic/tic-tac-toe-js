@@ -73,7 +73,8 @@ function createPlayer(name, symbol) {
 function createGame() {
     const player1 = createPlayer("Player One", "X");
     const player2 = createPlayer("Player Two", "O");
-
+    
+    let isGameOver = false;
     let currentPlayer = player1;
 
     const gameBoard = createBoard();
@@ -89,6 +90,7 @@ function createGame() {
         // Check if game has ended
         let gameStatus = gameBoard.checkBoard();
         if (gameStatus !== null) {
+            isGameOver = true;
             return gameStatus;
         }
         return null;
@@ -107,8 +109,13 @@ function createGame() {
         return currentPlayer;
     }
 
+    const getIsGameOver = () => {
+        return isGameOver;
+    }
+
     const resetGame = () => {
         currentPlayer = player1;
+        isGameOver = false;
         gameBoard.resetBoard();
     }
 
@@ -116,7 +123,7 @@ function createGame() {
         console.log(gameBoard.getBoardState());
     }
 
-    return { canTakeTurn, takeTurn, getCurrentPlayer, swapTurn, printBoardState, resetGame };
+    return { canTakeTurn, takeTurn, getCurrentPlayer, swapTurn, printBoardState, getIsGameOver, resetGame };
 }
 
 function displayHandler() {
@@ -143,7 +150,7 @@ function displayHandler() {
 
     const takeTurn = (square) => {
         let index = square.dataset.index;
-        if (mainGame.canTakeTurn(index - 1)) {
+        if (mainGame.canTakeTurn(index - 1) && !mainGame.getIsGameOver()) {
             let result = mainGame.takeTurn(index - 1);
             square.textContent = mainGame.getCurrentPlayer().getSymbol();
             if (result !== null) {
